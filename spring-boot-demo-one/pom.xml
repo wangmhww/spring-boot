@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <mapper.boot.starter.version>2.1.5</mapper.boot.starter.version>
+        <mapper-module.version>1.1.5</mapper-module.version>
     </properties>
 
     <dependencies>
@@ -23,7 +25,60 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <!-- 必备依赖，提供核心功能 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-core</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
+        <!-- 如果需要通用 Mapper 自带的 Mapper 接口和系列方法，需要引入本依赖 -->
+        <!-- 拆分 base 项目的目的在于以后可能会提供其他的方式来实现接口 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-base</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
+        <!-- 针对开发人员的需要提供的一些额外的接口，都有特殊的使用要求 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-extra</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-weekend</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${mapper.boot.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-autoconfigure</artifactId>
+            <version>${mapper.boot.starter.version}</version>
+        </dependency>
+        <!-- 代码生成器 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-generator</artifactId>
+            <version>${mapper-module.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
