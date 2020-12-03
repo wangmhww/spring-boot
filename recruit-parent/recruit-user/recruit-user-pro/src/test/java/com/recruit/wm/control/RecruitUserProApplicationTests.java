@@ -1,4 +1,4 @@
-package com.recruit.wm.recruituserpro;
+package com.recruit.wm.control;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
