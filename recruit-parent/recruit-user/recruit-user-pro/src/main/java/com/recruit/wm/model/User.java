@@ -1,7 +1,7 @@
 package com.recruit.wm.model;
 
 import lombok.*;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author wangm
@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j;
  * @description: TODO
  * @date 2020/12/321:45
  */
-@Log4j
+@Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

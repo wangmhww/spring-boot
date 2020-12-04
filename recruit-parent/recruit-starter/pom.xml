@@ -5,12 +5,12 @@
     <parent>
         <artifactId>recruit-parent</artifactId>
         <groupId>com.recruit.wm</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <groupId>com.recruit.wm</groupId>
     <artifactId>recruit-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>recruit-starter</name>
     <description>recruit-starter</description>
 
@@ -19,16 +19,11 @@
     </properties>
     <packaging>war</packaging>
     <dependencies>
-
+        <dependency>
+            <groupId>com.recruit.wm</groupId>
+            <artifactId>recruit-user-pro</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

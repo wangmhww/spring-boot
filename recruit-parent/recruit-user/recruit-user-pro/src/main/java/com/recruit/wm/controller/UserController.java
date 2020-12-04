@@ -4,6 +4,7 @@ import com.recruit.wm.model.User;
 import com.recruit.wm.service.IUserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -27,7 +28,7 @@ public class UserController {
         return userService.insert(user);
     }
 
-    @GetMapping("/selectByName/name")
+    @GetMapping(value = "/selectByName/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public User selectById(@Param("name") String name){
         return User.builder().name(name).age(26).build();
