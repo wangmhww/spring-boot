@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wm.dao.PermissionDao">
+    <select id="selectById" resultType="com.wm.bean.Permission">
+        select P.* FROM TB_USER AS U
+            LEFT JOIN TB_USER_ROLE AS UR ON U.ID = UR.USER_ID
+            LEFT JOIN TB_ROLE AS R ON R.ID = UR.ROLE_ID
+            LEFT JOIN TB_ROLE_PERMISSION AS RP ON R.ID = RP.ROLE_ID
+            LEFT JOIN TB_PERMISSION AS P ON P.ID = RP.PERMISSION_ID
+            WHERE U.ID = #{id}
+    </select>
+
+</mapper>
