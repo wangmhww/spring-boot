@@ -1,9 +1,15 @@
 package com.recruit.wm.security02.controller;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 
 /**
  * @author wangmingf
@@ -15,7 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     @GetMapping("/login")
-    public String admin(){
+    @RolesAllowed("ROLE_user") //必须是ROLE_开头
+//    @Secured("ROLE_admin")  //必须是ROLE_开头
+    public String admin() {
+        return "hello Security Demo";
+    }
+
+    @PreAuthorize("#id<4")
+    @GetMapping("/index")
+    public String index(int id) {
         return "hello Security Demo";
     }
 }

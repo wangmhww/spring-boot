@@ -13,11 +13,6 @@
     <version>${revision}</version>
     <name>recruit-starter</name>
     <description>recruit-starter</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-    <packaging>war</packaging>
     <dependencies>
         <dependency>
             <groupId>com.recruit.wm</groupId>
@@ -25,5 +20,28 @@
             <version>${revision}</version>
         </dependency>
     </dependencies>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <packaging>war</packaging>
+    <build>
+        <!-- 为jar包取名 -->
+        <finalName>recruit</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.0.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

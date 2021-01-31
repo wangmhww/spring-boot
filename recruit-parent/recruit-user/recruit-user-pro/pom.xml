@@ -19,8 +19,11 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.recruit.wm</groupId>
+            <artifactId>recruit-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
-
 
 </project>

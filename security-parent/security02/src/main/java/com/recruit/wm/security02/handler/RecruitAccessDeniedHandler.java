@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * 由于权限不足访问失败处理类
  * @author wangmingf
  * @Date Create in 14:23 2020/12/29
  * @since 1.2.0

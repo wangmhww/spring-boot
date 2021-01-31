@@ -3,29 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>recruit-user</artifactId>
         <groupId>com.recruit.wm</groupId>
+        <artifactId>recruit-parent</artifactId>
         <version>${revision}</version>
     </parent>
-
     <groupId>com.recruit.wm</groupId>
-    <artifactId>recruit-user-starter</artifactId>
+    <artifactId>recruit-common</artifactId>
     <version>${revision}</version>
-    <name>recruit-user-starter</name>
-    <description>recruit-user-starter</description>
+    <name>recruit-common</name>
+    <description>recruit common</description>
 
-    <packaging>war</packaging>
-
+    <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.recruit.wm</groupId>
-            <artifactId>recruit-user-pro</artifactId>
-            <version>${version}</version>
-        </dependency>
     </dependencies>
+
 
 </project>

@@ -29,9 +29,9 @@ public class UserService implements IUserService  {
         UserDetails userDetails = null;
 
         if("wangming".equals(username)){
-            userDetails = new User(username,pw, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+            userDetails = new User(username,pw, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin,admin"));
         }else{
-            userDetails = new User(username,pw, AuthorityUtils.commaSeparatedStringToAuthorityList("user"));
+            userDetails = new User(username,pw, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_user,user"));
         }
         return userDetails;
     }

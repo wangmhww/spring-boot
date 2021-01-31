@@ -7,13 +7,19 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication()
 //@ComponentScan("com.recruit.wm")
 @MapperScan("com.recruit.wm.dao")
-public class RecruitStarterApplication extends SpringBootServletInitializer {
+@EnableConfigurationProperties
+@EnableSwagger2
+public class RecruitStarterApplication extends SpringBootServletInitializer implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(RecruitStarterApplication.class, args);
     }
@@ -27,5 +33,11 @@ public class RecruitStarterApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(RecruitStarterApplication.class);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 }
