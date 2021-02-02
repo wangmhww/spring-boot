@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @description: TODO
  * @date 2021/1/119:58
  */
-@Configuration
-@EnableAuthorizationServer
+//@Configuration
+//@EnableAuthorizationServer
 public class AuthorizationServiceConfig extends AuthorizationServerConfigurerAdapter {
     // 授权码模式
     // http://localhost:8080/oauth/authorize?response_type=code&client_id=client&redirect_uri=http://www.baidu.com&scope=all
