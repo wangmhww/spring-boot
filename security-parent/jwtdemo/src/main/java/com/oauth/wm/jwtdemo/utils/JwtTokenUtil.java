@@ -21,7 +21,7 @@ public class JwtTokenUtil {
     // 签名主题
     public static final String SUBJECT = "app";
     // 过期时间
-    public static final long EXPIRITION = 30 * 60 ;
+    public static final long EXPIRITION = 30 * 60 * 1000;
     // 应用密钥
     public static final String APPSECRET_KEY = "123123";
     // 角色权限声明
