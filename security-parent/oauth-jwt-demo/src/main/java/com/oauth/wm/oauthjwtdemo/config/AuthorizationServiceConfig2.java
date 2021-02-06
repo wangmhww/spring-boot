@@ -22,15 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 配合 oauth-sso-client-demo使用
  * @author wangm
  * @title: AuthorizationServiceConfig
  * @projectName security-parent
  * @description: TODO
  * @date 2021/2/522:27
  */
-//@Configuration
-//@EnableAuthorizationServer
-public class AuthorizationServiceConfig extends AuthorizationServerConfigurerAdapter {
+@Configuration
+@EnableAuthorizationServer
+public class AuthorizationServiceConfig2 extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -70,8 +71,10 @@ public class AuthorizationServiceConfig extends AuthorizationServerConfigurerAda
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        //
-        security.allowFormAuthenticationForClients();
+        // 允许表单认证
+        security.allowFormAuthenticationForClients()
+        // 获取密钥需要身份认证，使用单点登录时必须配置
+        .tokenKeyAccess("isAuthenticated()");
     }
 
     @Override
@@ -95,12 +98,22 @@ public class AuthorizationServiceConfig extends AuthorizationServerConfigurerAda
                 .withClient("client")
                 //配置client-secret
                 .secret(passwordEncoder.encode("123123"))
-                .redirectUris("http://www.baidu.com")
+                .redirectUris("http://localhost:8088/login","http://localhost:8089/login")
                 //配置访问token的有效期
                 .accessTokenValiditySeconds(3600)
                 // 配置刷新token的有效期
                 .refreshTokenValiditySeconds(864000)
+                //自动授权配置
+                .autoApprove(true)
+                // 配置申请的权限范围
                 .scopes("all")
+                /**
+                 * 配置grant_type，表示授权类型
+                 * authorization_code: 授权码
+                 * password： 密码
+                 * client_credentials: 客户端
+                 * refresh_token: 更新令牌
+                 */
                 .authorizedGrantTypes("authorization_code","password","refresh_token");
     }
 }
